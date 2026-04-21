@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accomodo | Living Made Easier</title>
+    <!-- Modern Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Accomodo - The smart way to find PGs, hostels, and flats near UPES Dehradun campus.">
+</head>
+<body>
+    <nav>
+        <div class="logo">ACCOMODO</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="search.html">Explore</a>
+            <a href="#">Properties</a>
+            <a href="#">About</a>
+        </div>
+        <div>
+            <button class="btn-glass" onclick="location.href='profile.html'">Sign In</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 class="title">Living Made Easier.</h1>
+        <p class="subtitle">Discover verified Hostels, PGs, and Flats around UPES Bidholi & Kandoli. Smart matching, zero hassle.</p>
+        
+        <form class="search-container" action="search.html" method="GET">
+            <input type="text" class="search-input" name="q" placeholder="Search by name, location, or type (e.g., Premium Hostel)..." aria-label="Search">
+            <button type="submit" class="search-btn">Discover Stays</button>
+        </form>
+    </header>
+
+    <section class="top-listings">
+        <h2 class="section-head">Top Recommendations</h2>
+        <div class="grid">
+            <!-- Property Card 1 -->
+            <div class="card" onclick="location.href='details.html?id=1'">
+                <div class="badge hostel">Hostel</div>
+                <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=600" alt="UPES Premium Hostel" class="card-img">
+                <div class="card-body">
+                    <div class="card-price">₹15,000 / mo</div>
+                    <h3 class="card-title">UPES Premium Hostel</h3>
+                    <div class="card-info">
+                        <span>Bidholi • 1.2km</span>
+                        <span>Boys • Food Incl.</span>
+                    </div>
+                    <div class="amenity-chips">
+                        <span class="chip">WiFi</span>
+                        <span class="chip">AC</span>
+                        <span class="chip">Laundry</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Card 2 -->
+            <div class="card" onclick="location.href='details.html?id=2'">
+                <div class="badge pg">PG</div>
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=600" alt="Kandoli Girls PG" class="card-img">
+                <div class="card-body">
+                    <div class="card-price">₹8,000 / mo</div>
+                    <h3 class="card-title">Kandoli Girls PG</h3>
+                    <div class="card-info">
+                        <span>Kandoli • 0.5km</span>
+                        <span>Girls • Food Incl.</span>
+                    </div>
+                    <div class="amenity-chips">
+                        <span class="chip">WiFi</span>
+                        <span class="chip">Security</span>
+                        <span class="chip">RO Water</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Card 3 -->
+            <div class="card" onclick="location.href='details.html?id=3'">
+                <div class="badge flat">Flat</div>
+                <img src="https://images.unsplash.com/photo-1502672260266-1c1e524164ed?auto=format&fit=crop&q=80&w=600" alt="Sunset View Flats" class="card-img">
+                <div class="card-body">
+                    <div class="card-price">₹22,000 / mo</div>
+                    <h3 class="card-title">Sunset View Flats</h3>
+                    <div class="card-info">
+                        <span>Bidholi • 3.5km</span>
+                        <span>Entire 3BHK</span>
+                    </div>
+                    <div class="amenity-chips">
+                        <span class="chip">Furnished</span>
+                        <span class="chip">Parking</span>
+                        <span class="chip">Balcony</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Property Card 4 -->
+            <div class="card" onclick="location.href='details.html?id=4'">
+                <div class="badge hostel">Hostel</div>
+                <img src="https://images.unsplash.com/photo-1595526114101-11b0e3be5384?auto=format&fit=crop&q=80&w=600" alt="Bidholi Scholars Hub" class="card-img">
+                <div class="card-body">
+                    <div class="card-price">₹12,000 / mo</div>
+                    <h3 class="card-title">Bidholi Scholars Hub</h3>
+                    <div class="card-info">
+                        <span>Bidholi • 2.0km</span>
+                        <span>Girls • Bus Svc</span>
+                    </div>
+                    <div class="amenity-chips">
+                        <span class="chip">WiFi</span>
+                        <span class="chip">Library</span>
+                        <span class="chip">Bus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

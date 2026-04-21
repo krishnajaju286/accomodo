@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accomodo | Explore Properties</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .explore-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            padding: 2rem 5%;
+        }
+
+        .filter-sidebar {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            backdrop-filter: var(--glass-blur);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-light);
+        }
+
+        .filter-group input[type="range"],
+        .filter-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            color: #fff;
+            outline: none;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+            font-weight: 400 !important;
+            color: var(--text-main) !important;
+            cursor: pointer;
+        }
+
+        .results {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .list-card {
+            display: flex;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: var(--glass-blur);
+            transition: transform 0.3s ease;
+        }
+
+        .list-card:hover {
+            transform: scale(1.02);
+            border-color: var(--secondary);
+        }
+
+        .list-img {
+            width: 300px;
+            object-fit: cover;
+        }
+
+        .list-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 900px) {
+            .explore-layout {
+                grid-template-columns: 1fr;
+            }
+            .list-card {
+                flex-direction: column;
+            }
+            .list-img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">ACCOMODO</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="search.html" style="color: var(--secondary);">Explore</a>
+            <a href="#">Properties</a>
+        </div>
+        <div>
+            <button class="btn-glass">Sign In</button>
+        </div>
+    </nav>
+
+    <div class="explore-layout">
+        <!-- Sidebar -->
+        <aside class="filter-sidebar">
+            <h3 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">Smart Filters</h3>
+            
+            <div class="filter-group">
+                <label>Accommodation Type</label>
+                <select>
+                    <option value="">All Types</option>
+                    <option value="hostel">Hostels</option>
+                    <option value="pg">PGs</option>
+                    <option value="flat">Flats</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Max Budget (₹/mo): <span id="priceVal">15000</span></label>
+                <input type="range" min="3000" max="30000" step="500" value="15000" oninput="document.getElementById('priceVal').innerText = this.value">
+            </div>
+
+            <div class="filter-group">
+                <label>Distance to Campus</label>
+                <select>
+                    <option value="1">< 1 km</option>
+                    <option value="3">< 3 km</option>
+                    <option value="5">< 5 km</option>
+                    <option value="any">Any Distance</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Gender Preference</label>
+                <label class="checkbox-label"><input type="radio" name="gender" value="boys"> Boys Only</label>
+                <label class="checkbox-label"><input type="radio" name="gender" value="girls"> Girls Only</label>
+                <label class="checkbox-label"><input type="radio" name="gender" value="coed"> Co-ed / Family</label>
+            </div>
+
+            <div class="filter-group">
+                <label>Amenities</label>
+                <label class="checkbox-label"><input type="checkbox"> Wi-Fi</label>
+                <label class="checkbox-label"><input type="checkbox"> AC</label>
+                <label class="checkbox-label"><input type="checkbox"> Food Included</label>
+            </div>
+
+            <button class="btn-glass" style="width: 100%; margin-top: 1rem;">Apply Filters</button>
+        </aside>
+
+        <!-- Results -->
+        <main class="results">
+            <h2 style="margin-bottom: 1rem;">Found 5 Properties</h2>
+
+            <!-- Item 1 -->
+            <div class="list-card" onclick="location.href='details.html?id=1'" style="cursor: pointer;">
+                <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=600" alt="Room" class="list-img">
+                <div class="list-body">
+                    <div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <h3 class="card-title">UPES Premium Hostel</h3>
+                            <div class="card-price">₹15,000<span style="font-size: 0.9rem; font-weight: normal;">/mo</span></div>
+                        </div>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">Bidholi • 1.2km • Boys • Strict Curfew 21:30</p>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Premium boys hostel with top-class facilities, gym, and nutritious mess food.</p>
+                        <div class="amenity-chips">
+                            <span class="chip">WiFi</span>
+                            <span class="chip">AC</span>
+                            <span class="chip">Laundry</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="list-card" onclick="location.href='details.html?id=2'" style="cursor: pointer;">
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=600" alt="Room" class="list-img">
+                <div class="list-body">
+                    <div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <h3 class="card-title">Kandoli Girls PG</h3>
+                            <div class="card-price">₹8,000<span style="font-size: 0.9rem; font-weight: normal;">/mo</span></div>
+                        </div>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">Kandoli • 0.5km • Girls • Curfew 20:00</p>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Safe and secure girls accommodation walking distance from Kandoli campus.</p>
+                        <div class="amenity-chips">
+                            <span class="chip">WiFi</span>
+                            <span class="chip">Security</span>
+                            <span class="chip">Food Incl.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>
+</html>
