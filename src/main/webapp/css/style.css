@@ -1,15 +1,15 @@
 /* style.css: Modern, Glassmorphism, Vibrant Dark Mode */
 
 :root {
-    --primary: #ff4757;
-    --primary-light: #ff7f50;
-    --secondary: #2ed573;
-    --bg-dark: #1e1b4b;
-    --bg-card: rgba(49, 46, 129, 0.6);
-    --text-main: #f8fafc;
-    --text-muted: #cbd5e1;
-    --accent: #ffa502;
-    --border: rgba(255, 255, 255, 0.1);
+    --primary: #818cf8;
+    --primary-light: #a5b4fc;
+    --secondary: #34d399;
+    --bg-dark: #0d1117;
+    --bg-card: rgba(22, 27, 34, 0.85);
+    --text-main: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #f0b429;
+    --border: rgba(255, 255, 255, 0.08);
     --glass-blur: blur(16px);
 }
 
@@ -25,8 +25,8 @@ body {
     color: var(--text-main);
     min-height: 100vh;
     background-image:
-        radial-gradient(circle at 15% 50%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 85% 30%, rgba(0, 206, 201, 0.15) 0%, transparent 50%);
+        radial-gradient(circle at 10% 20%, rgba(129, 140, 248, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 90% 80%, rgba(52, 211, 153, 0.05) 0%, transparent 45%);
     background-attachment: fixed;
 }
 
@@ -36,7 +36,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(13, 17, 23, 0.75);
     backdrop-filter: var(--glass-blur);
     border-bottom: 1px solid var(--border);
     position: sticky;
@@ -62,8 +62,8 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--secondary);
-    text-shadow: 0 0 10px rgba(0, 206, 201, 0.4);
+    color: var(--primary-light);
+    text-shadow: 0 0 12px rgba(165, 180, 252, 0.3);
 }
 
 .btn-glass {
@@ -84,7 +84,7 @@ nav {
     background: var(--primary);
     border-color: var(--primary-light);
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+    box-shadow: 0 10px 20px rgba(129, 140, 248, 0.25);
 }
 
 /* Hero Section */
@@ -158,7 +158,7 @@ nav {
 
 .search-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 206, 201, 0.5);
+    box-shadow: 0 0 20px rgba(129, 140, 248, 0.35);
 }
 
 /* Grid & Cards */
@@ -224,18 +224,18 @@ nav {
 }
 
 .badge.hostel {
-    color: var(--accent);
-    border-color: rgba(253, 121, 168, 0.5);
+    color: #fb923c;
+    border-color: rgba(251, 146, 60, 0.35);
 }
 
 .badge.pg {
     color: var(--secondary);
-    border-color: rgba(0, 206, 201, 0.5);
+    border-color: rgba(52, 211, 153, 0.35);
 }
 
 .badge.flat {
     color: var(--primary-light);
-    border-color: rgba(162, 155, 254, 0.5);
+    border-color: rgba(165, 180, 252, 0.35);
 }
 
 .card-price {
