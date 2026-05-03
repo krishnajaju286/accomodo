@@ -6,15 +6,19 @@ public class User {
     private String email;
     private String password;
     private String userType;
+    private String gender;
+    private String preferences;
 
     public User() {}
 
-    public User(int userId, String name, String email, String password, String userType) {
+    public User(int userId, String name, String email, String password, String userType, String gender, String preferences) {
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.password = password;
         this.userType = userType;
+        this.gender = gender;
+        this.preferences = preferences;
     }
 
     // Getters and Setters
@@ -32,4 +36,10 @@ public class User {
 
     public String getUserType() { return userType; }
     public void setUserType(String userType) { this.userType = userType; }
+
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; }
+
+    public String getPreferences() { return preferences; }
+    public void setPreferences(String preferences) { this.preferences = preferences; }
 }

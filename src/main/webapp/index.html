@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <meta name="description" content="Accomodo - The smart way to find PGs, hostels, and flats near UPES Dehradun campus.">
+    <link rel="manifest" href="manifest.json">
+    <script src="js/app.js" defer></script>
 </head>
 <body>
     <nav>
@@ -15,11 +17,11 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="search.html">Explore</a>
-            <a href="#">Properties</a>
-            <a href="#">About</a>
+            <a href="properties.html">Properties</a>
+            <a href="about.html">About</a>
         </div>
-        <div>
-            <button class="btn-glass" onclick="location.href='profile.html'">Sign In</button>
+        <div id="auth-nav-container">
+            <button class="btn-glass" onclick="location.href='login.html'">Sign In</button>
         </div>
     </nav>
 
@@ -33,7 +35,7 @@
         </form>
     </header>
 
-    <section class="top-listings">
+    <section class="top-listings" id="recommendations-container">
         <h2 class="section-head">Top Recommendations</h2>
         <div class="grid">
             <!-- Property Card 1 -->

@@ -6,6 +6,8 @@
     <title>Property Details | Accomodo</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="js/app.js" defer></script>
     <style>
         .details-hero {
             height: 50vh;
@@ -99,9 +101,11 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="search.html">Explore</a>
+            <a href="properties.html">Properties</a>
+            <a href="about.html">About</a>
         </div>
-        <div>
-            <button class="btn-glass">Sign In</button>
+        <div id="auth-nav-container">
+            <button class="btn-glass" onclick="location.href='login.html'">Sign In</button>
         </div>
     </nav>
 
@@ -114,6 +118,13 @@
     </div>
 
     <div class="container">
+        <div class="carousel-container" style="grid-column: 1 / -1; margin-bottom: 1rem;">
+            <img class="carousel-slide" src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=1200" alt="Image 1">
+            <img class="carousel-slide" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=1200" alt="Image 2">
+            <img class="carousel-slide" src="https://images.unsplash.com/photo-1502672260266-1c1e524164ed?auto=format&fit=crop&q=80&w=1200" alt="Image 3">
+            <img class="carousel-slide" src="https://images.unsplash.com/photo-1595526114101-11b0e3be5384?auto=format&fit=crop&q=80&w=1200" alt="Image 4">
+        </div>
+
         <div class="main-info">
             <h2>Overview</h2>
             <p style="line-height: 1.8; color: var(--text-muted); margin-bottom: 2rem;">
@@ -166,9 +177,17 @@
                 <p style="color: var(--secondary); font-weight: bold; margin-bottom: 2rem;">✓ Available Now</p>
                 
                 <button class="btn-glass" style="width: 100%; margin-bottom: 1rem; background: var(--primary); border: none;">Contact Owner</button>
-                <button class="btn-glass" style="width: 100%;">❤️ Add to Favorites</button>
+                <button class="btn-glass" style="width: 100%;" onclick="showToast('Added to Favorites!', 'heart')">❤️ Add to Favorites</button>
             </div>
         </aside>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Track property view for recommendation engine
+            if (window.trackViewHistory) {
+                window.trackViewHistory(1);
+            }
+        });
+    </script>
 </body>
 </html>

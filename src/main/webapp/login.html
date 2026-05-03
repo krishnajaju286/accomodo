@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accomodo | Sign In / Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="js/app.js" defer></script>
+    <style>
+        .login-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .login-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+            padding: 3rem;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: scaleIn 0.5s ease-out;
+        }
+        .login-input, .login-select {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .login-select option {
+            background: var(--bg-dark);
+        }
+        .login-input:focus, .login-select:focus {
+            border-color: var(--secondary);
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">ACCOMODO</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="search.html">Explore</a>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <!-- Sign In Form -->
+        <div class="login-card" id="signInForm">
+            <h1 style="margin-bottom: 0.5rem; font-size: 2.5rem; color: #fff;">Welcome Back</h1>
+            <p style="color: var(--text-muted); margin-bottom: 2.5rem;">Sign in to see recommended properties.</p>
+            
+            <form onsubmit="handleLogin(event)">
+                <input type="email" id="loginEmail" class="login-input" placeholder="Email Address" required>
+                <input type="password" id="loginPass" class="login-input" placeholder="Password" required>
+                
+                <button type="submit" class="btn-glass" style="width: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); border: none; padding: 1rem; font-size: 1.1rem;">Sign In</button>
+            </form>
+            
+            <p style="margin-top: 2rem; color: var(--text-muted);">
+                Don't have an account? <a href="#" style="color: var(--secondary); text-decoration: none;" onclick="toggleForms()">Sign Up</a>
+            </p>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="login-card hidden" id="signUpForm">
+            <h1 style="margin-bottom: 0.5rem; font-size: 2.5rem; color: #fff;">Create Account</h1>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Tell us what you're looking for to get personalized recommendations.</p>
+            
+            <form onsubmit="handleRegister(event)">
+                <input type="text" id="regName" class="login-input" placeholder="Full Name" required>
+                <input type="email" id="regEmail" class="login-input" placeholder="Email Address" required>
+                <input type="password" id="regPass" class="login-input" placeholder="Password" required>
+                
+                <select id="regGender" class="login-select" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <select id="regPref" class="login-select" required>
+                    <option value="">What are you looking for?</option>
+                    <option value="Hostel">Hostel with Food</option>
+                    <option value="PG">PG near campus</option>
+                    <option value="Flat">Independent Flat</option>
+                </select>
+
+                <select id="regBudget" class="login-select" required>
+                    <option value="">Max Monthly Budget</option>
+                    <option value="8000">Under ₹8,000</option>
+                    <option value="12000">Under ₹12,000</option>
+                    <option value="18000">Under ₹18,000</option>
+                    <option value="99999">No Budget Limit</option>
+                </select>
+
+                <select id="regFood" class="login-select" required>
+                    <option value="">Food Preference</option>
+                    <option value="Veg">Vegetarian Only</option>
+                    <option value="Any">Any / Non-Veg Allowed</option>
+                    <option value="Self">Self Cooking / Kitchen Required</option>
+                </select>
+
+                <select id="regSharing" class="login-select" required>
+                    <option value="">Room Preference</option>
+                    <option value="Single">Private / Single Room</option>
+                    <option value="Shared">Shared Room</option>
+                    <option value="Any">Doesn't Matter</option>
+                </select>
+                
+                <button type="submit" class="btn-glass" style="width: 100%; background: linear-gradient(135deg, var(--secondary), var(--primary)); border: none; padding: 1rem; font-size: 1.1rem;">Register</button>
+            </form>
+            
+            <p style="margin-top: 2rem; color: var(--text-muted);">
+                Already have an account? <a href="#" style="color: var(--secondary); text-decoration: none;" onclick="toggleForms()">Sign In</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            document.getElementById('signInForm').classList.toggle('hidden');
+            document.getElementById('signUpForm').classList.toggle('hidden');
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const pass = document.getElementById('loginPass').value;
+
+            const result = window.mockLogin(email, pass);
+            if(result.success) {
+                showToast(result.message, 'success');
+                setTimeout(() => window.location.href = 'index.html', 1500);
+            } else {
+                showToast(result.message, 'error');
+            }
+        }
+
+        async function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const pass = document.getElementById('regPass').value;
+            const gender = document.getElementById('regGender').value;
+            const prefs = document.getElementById('regPref').value;
+            const budget = document.getElementById('regBudget').value;
+            const food = document.getElementById('regFood').value;
+            const sharing = document.getElementById('regSharing').value;
+
+            const result = window.mockRegister(name, email, pass, gender, prefs, budget, food, sharing);
+            if(result.success) {
+                showToast(result.message, 'success');
+                setTimeout(() => window.location.href = 'index.html', 1500);
+            } else {
+                showToast(result.message, 'error');
+            }
+        }
+    </script>
+</body>
+</html>

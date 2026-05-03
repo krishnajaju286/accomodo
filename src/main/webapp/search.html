@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +6,9 @@
     <title>Accomodo | Explore Properties</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="js/app.js" defer></script>
+    <script src="js/search.js" defer></script>
     <style>
         .explore-layout {
             display: grid;
@@ -111,10 +114,11 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="search.html" style="color: var(--secondary);">Explore</a>
-            <a href="#">Properties</a>
+            <a href="properties.html">Properties</a>
+            <a href="about.html">About</a>
         </div>
-        <div>
-            <button class="btn-glass">Sign In</button>
+        <div id="auth-nav-container">
+            <button class="btn-glass" onclick="location.href='login.html'">Sign In</button>
         </div>
     </nav>
 
@@ -169,8 +173,12 @@
         <main class="results">
             <h2 style="margin-bottom: 1rem;">Found 5 Properties</h2>
 
+            <!-- Skeleton Loaders -->
+            <div class="skeleton-card list-card skeleton" style="height: 200px; margin-bottom: 1rem;"></div>
+            <div class="skeleton-card list-card skeleton" style="height: 200px; margin-bottom: 1rem;"></div>
+
             <!-- Item 1 -->
-            <div class="list-card" onclick="location.href='details.html?id=1'" style="cursor: pointer;">
+            <div class="list-card real-card" onclick="location.href='details.html?id=1'" style="cursor: pointer;">
                 <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=600" alt="Room" class="list-img">
                 <div class="list-body">
                     <div>
@@ -180,6 +188,9 @@
                         </div>
                         <p style="color: var(--text-muted); margin-bottom: 1rem;">Bidholi • 1.2km • Boys • Strict Curfew 21:30</p>
                         <p style="font-size: 0.9rem; margin-bottom: 1rem;">Premium boys hostel with top-class facilities, gym, and nutritious mess food.</p>
+                        <label class="checkbox-label" onclick="event.stopPropagation();" style="margin-bottom: 1rem;">
+                            <input type="checkbox" onchange="toggleCompare('1', 'UPES Premium Hostel', 15000, this, event)"> Compare
+                        </label>
                         <div class="amenity-chips">
                             <span class="chip">WiFi</span>
                             <span class="chip">AC</span>
@@ -190,7 +201,7 @@
             </div>
 
             <!-- Item 2 -->
-            <div class="list-card" onclick="location.href='details.html?id=2'" style="cursor: pointer;">
+            <div class="list-card real-card" onclick="location.href='details.html?id=2'" style="cursor: pointer;">
                 <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=600" alt="Room" class="list-img">
                 <div class="list-body">
                     <div>
@@ -200,6 +211,9 @@
                         </div>
                         <p style="color: var(--text-muted); margin-bottom: 1rem;">Kandoli • 0.5km • Girls • Curfew 20:00</p>
                         <p style="font-size: 0.9rem; margin-bottom: 1rem;">Safe and secure girls accommodation walking distance from Kandoli campus.</p>
+                        <label class="checkbox-label" onclick="event.stopPropagation();" style="margin-bottom: 1rem;">
+                            <input type="checkbox" onchange="toggleCompare('2', 'Kandoli Girls PG', 8000, this, event)"> Compare
+                        </label>
                         <div class="amenity-chips">
                             <span class="chip">WiFi</span>
                             <span class="chip">Security</span>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accomodo | All Properties</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Browse all verified PGs, Hostels, and Flats near UPES Dehradun.">
+    <script src="js/app.js" defer></script>
+    <style>
+        .properties-hero {
+            padding: 5rem 5% 3rem;
+            text-align: center;
+        }
+        .properties-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.8rem;
+        }
+        .properties-hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Filter bar */
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 0 5% 2.5rem;
+        }
+        .filter-btn {
+            padding: 0.6rem 1.8rem;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            backdrop-filter: var(--glass-blur);
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .prop-count {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+        .prop-count span {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        #all-properties-grid {
+            padding: 0 5% 5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">ACCOMODO</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="search.html">Explore</a>
+            <a href="properties.html" style="color: var(--secondary);">Properties</a>
+            <a href="about.html">About</a>
+        </div>
+        <div id="auth-nav-container">
+            <button class="btn-glass" onclick="location.href='login.html'">Sign In</button>
+        </div>
+    </nav>
+
+    <div class="properties-hero">
+        <h1>🏘️ All Properties</h1>
+        <p>Browse our complete catalog of verified Hostels, PGs, and Flats near UPES.</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-bar">
+        <button class="filter-btn active" id="filter-all" onclick="filterProps('All', this)">All</button>
+        <button class="filter-btn" id="filter-hostel" onclick="filterProps('Hostel', this)">🏠 Hostels</button>
+        <button class="filter-btn" id="filter-pg" onclick="filterProps('PG', this)">🛏️ PGs</button>
+        <button class="filter-btn" id="filter-flat" onclick="filterProps('Flat', this)">🏢 Flats</button>
+        <button class="filter-btn" id="filter-boys" onclick="filterProps('Male', this)">👦 Boys</button>
+        <button class="filter-btn" id="filter-girls" onclick="filterProps('Female', this)">👧 Girls</button>
+        <button class="filter-btn" id="filter-coed" onclick="filterProps('Any', this)">🤝 Co-ed</button>
+    </div>
+
+    <p class="prop-count" id="prop-count">Showing <span id="visible-count">35</span> properties</p>
+
+    <div id="all-properties-grid">
+        <div class="grid" id="properties-grid">
+            <!-- Dynamically populated by JS -->
+        </div>
+    </div>
+
+    <script>
+        let activeFilter = 'All';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAllProperties('All');
+        });
+
+        function filterProps(filter, btn) {
+            activeFilter = filter;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderAllProperties(filter);
+        }
+
+        function renderAllProperties(filter) {
+            const catalog = window.propertyCatalog || [];
+            let filtered = catalog;
+
+            if (filter === 'Male' || filter === 'Female' || filter === 'Any') {
+                filtered = catalog.filter(p => p.gender === filter);
+            } else if (filter !== 'All') {
+                filtered = catalog.filter(p => p.type === filter);
+            }
+
+            document.getElementById('visible-count').textContent = filtered.length;
+
+            const grid = document.getElementById('properties-grid');
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding: 3rem; grid-column: 1/-1; font-size: 1.2rem;">No properties found for this filter.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(p => {
+                const badgeClass = p.type.toLowerCase();
+                const chips = p.chips.map(c => `<span class="chip">${c}</span>`).join('');
+                return `
+                    <div class="card" onclick="location.href='details.html?id=${p.id}'">
+                        <div class="badge ${badgeClass}">${p.type}</div>
+                        <img src="${p.img}" alt="${p.title}" class="card-img">
+                        <div class="card-body">
+                            <div class="card-price">₹${p.price.toLocaleString('en-IN')} / mo</div>
+                            <h3 class="card-title">${p.title}</h3>
+                            <div class="card-info">
+                                <span>📍 ${p.loc}</span>
+                                <span>${p.tags}</span>
+                            </div>
+                            <div class="amenity-chips">${chips}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+    </script>
+</body>
+</html>
