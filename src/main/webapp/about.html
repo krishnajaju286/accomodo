@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accomodo | About Us & Our Team</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <meta name="description" content="Meet the team behind Accomodo - Building smarter student housing near UPES Dehradun.">
+    <meta name="description"
+        content="Meet the team behind Accomodo - Building smarter student housing near UPES Dehradun.">
     <script src="js/app.js" defer></script>
     <style>
         /* ─── ABOUT HERO ─────────────────────────────── */
@@ -16,20 +18,22 @@
             position: relative;
             overflow: hidden;
         }
+
         .about-hero::before {
             content: '';
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 50%, rgba(255,71,87,0.18) 0%, transparent 55%),
-                radial-gradient(circle at 80% 40%, rgba(46,213,115,0.15) 0%, transparent 55%);
+                radial-gradient(circle at 20% 50%, rgba(255, 71, 87, 0.18) 0%, transparent 55%),
+                radial-gradient(circle at 80% 40%, rgba(46, 213, 115, 0.15) 0%, transparent 55%);
             pointer-events: none;
         }
+
         .about-hero-tag {
             display: inline-block;
-            background: rgba(255,71,87,0.15);
+            background: rgba(255, 71, 87, 0.15);
             color: var(--primary);
-            border: 1px solid rgba(255,71,87,0.4);
+            border: 1px solid rgba(255, 71, 87, 0.4);
             border-radius: 30px;
             padding: 0.4rem 1.2rem;
             font-size: 0.85rem;
@@ -39,6 +43,7 @@
             margin-bottom: 1.5rem;
             animation: fadeInDown 0.6s ease;
         }
+
         .about-hero h1 {
             font-size: 3.5rem;
             font-weight: 800;
@@ -48,6 +53,7 @@
             margin-bottom: 1.2rem;
             animation: fadeInDown 0.8s ease;
         }
+
         .about-hero p {
             font-size: 1.2rem;
             color: var(--text-muted);
@@ -69,7 +75,11 @@
             background: var(--bg-card);
             backdrop-filter: var(--glass-blur);
         }
-        .stat-item { text-align: center; }
+
+        .stat-item {
+            text-align: center;
+        }
+
         .stat-number {
             font-size: 2.5rem;
             font-weight: 800;
@@ -77,6 +87,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .stat-label {
             font-size: 0.9rem;
             color: var(--text-muted);
@@ -87,6 +98,7 @@
         .section-wrapper {
             padding: 5rem 5%;
         }
+
         .section-label {
             display: block;
             text-align: center;
@@ -97,12 +109,14 @@
             text-transform: uppercase;
             margin-bottom: 0.8rem;
         }
+
         .section-title {
             font-size: 2.4rem;
             font-weight: 800;
             text-align: center;
             margin-bottom: 1rem;
         }
+
         .section-subtitle {
             text-align: center;
             color: var(--text-muted);
@@ -120,6 +134,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .team-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -131,21 +146,29 @@
             position: relative;
             overflow: hidden;
         }
+
         .team-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
-        .team-card:hover::before { transform: scaleX(1); }
+
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+
         .team-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.35);
-            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+            border-color: rgba(255, 255, 255, 0.2);
         }
+
         .team-avatar {
             width: 110px;
             height: 110px;
@@ -153,17 +176,22 @@
             object-fit: cover;
             border: 3px solid transparent;
             background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
-                        linear-gradient(135deg, var(--primary), var(--accent)) border-box;
+                linear-gradient(135deg, var(--primary), var(--accent)) border-box;
             margin: 0 auto 1.2rem;
             display: block;
             transition: transform 0.3s ease;
         }
-        .team-card:hover .team-avatar { transform: scale(1.07); }
+
+        .team-card:hover .team-avatar {
+            transform: scale(1.07);
+        }
+
         .team-name {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 0.3rem;
         }
+
         .team-role {
             font-size: 0.85rem;
             font-weight: 600;
@@ -172,27 +200,32 @@
             text-transform: uppercase;
             margin-bottom: 0.8rem;
         }
+
         .team-sap {
             font-size: 0.78rem;
-            color: rgba(255,255,255,0.35);
+            color: rgba(255, 255, 255, 0.35);
             margin-bottom: 1rem;
         }
+
         .team-bio {
             font-size: 0.9rem;
             color: var(--text-muted);
             line-height: 1.6;
         }
+
         .team-socials {
             display: flex;
             justify-content: center;
             gap: 0.8rem;
             margin-top: 1.2rem;
         }
+
         .social-btn {
-            width: 36px; height: 36px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: 1px solid var(--border);
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -202,6 +235,7 @@
             text-decoration: none;
             color: var(--text-muted);
         }
+
         .social-btn:hover {
             background: var(--primary);
             border-color: var(--primary);
@@ -217,6 +251,7 @@
             max-width: 1100px;
             margin: 0 auto;
         }
+
         .value-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -226,18 +261,25 @@
             backdrop-filter: var(--glass-blur);
             transition: all 0.3s ease;
         }
+
         .value-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
         }
-        .value-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
         .value-title {
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.6rem;
             color: #fff;
         }
+
         .value-text {
             font-size: 0.88rem;
             color: var(--text-muted);
@@ -247,34 +289,38 @@
         /* ─── CONTACT CTA ─────────────────────────────── */
         .contact-cta {
             margin: 0 5% 5rem;
-            background: linear-gradient(135deg, rgba(255,71,87,0.12), rgba(255,165,2,0.1));
-            border: 1px solid rgba(255,71,87,0.25);
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.12), rgba(255, 165, 2, 0.1));
+            border: 1px solid rgba(255, 71, 87, 0.25);
             border-radius: 24px;
             padding: 3.5rem;
             text-align: center;
             backdrop-filter: var(--glass-blur);
         }
+
         .contact-cta h2 {
             font-size: 2rem;
             font-weight: 800;
             margin-bottom: 0.8rem;
         }
+
         .contact-cta p {
             color: var(--text-muted);
             font-size: 1.05rem;
             margin-bottom: 2rem;
         }
+
         .contact-links {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 1rem;
         }
+
         .contact-chip {
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            background: rgba(255,255,255,0.06);
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--border);
             padding: 0.7rem 1.4rem;
             border-radius: 30px;
@@ -283,6 +329,7 @@
             text-decoration: none;
             transition: all 0.25s ease;
         }
+
         .contact-chip:hover {
             background: var(--primary);
             border-color: var(--primary);
@@ -290,6 +337,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="logo">ACCOMODO</div>
@@ -308,7 +356,8 @@
     <div class="about-hero">
         <div class="about-hero-tag">👋 Meet the Team</div>
         <h1>Built by Students,<br>for Students.</h1>
-        <p>We are a passionate group of BTech CSE students from UPES Dehradun who got tired of the messy hostel-hunting experience. So we built Accomodo to fix it.</p>
+        <p>We are a passionate group of BTech CSE students from UPES Dehradun who got tired of the messy hostel-hunting
+            experience. So we built Accomodo to fix it.</p>
     </div>
 
     <!-- ── STATS ── -->
@@ -340,14 +389,13 @@
         <div class="team-grid">
             <!-- Member 1 — EDIT THIS -->
             <div class="team-card">
-                <img class="team-avatar"
-                     src="images/krish.jpg"
-                     alt="Krishna Jaju"
-                     onerror="this.src='https://ui-avatars.com/api/?name=Krishna+Jaju&background=ff4757&color=fff&size=200&bold=true'">
+                <img class="team-avatar" src="images/krish.jpg" alt="Krishna Jaju"
+                    onerror="this.src='https://ui-avatars.com/api/?name=Krishna+Jaju&background=ff4757&color=fff&size=200&bold=true'">
                 <div class="team-name">Krishna Jaju</div>
                 <div class="team-role">Lead Developer & Architect</div>
                 <div class="team-sap">SAP ID: 590015913 • Batch: 1CCVT</div>
-                <div class="team-bio">Designed the full-stack architecture of Accomodo, implemented the Java Servlet backend, personalised recommendation engine, and the glassmorphic frontend UI.</div>
+                <div class="team-bio">Designed the full-stack architecture of Accomodo, implemented the Java Servlet
+                    backend, personalised recommendation engine, and the glassmorphic frontend UI.</div>
                 <div class="team-socials">
                     <a class="social-btn" href="#" title="GitHub">🐙</a>
                     <a class="social-btn" href="#" title="LinkedIn">💼</a>
@@ -357,14 +405,13 @@
 
             <!-- Member 2 — Sparsh Singhania -->
             <div class="team-card">
-                <img class="team-avatar"
-                     src="images/sparsh.jpg"
-                     alt="Sparsh Singhania"
-                     onerror="this.src='https://ui-avatars.com/api/?name=Sparsh+Singhania&background=6366f1&color=fff&size=200&bold=true'">
+                <img class="team-avatar" src="" C:\Users\krish\Desktop\sparsh.jpeg" alt="Sparsh Singhania"
+                    onerror="this.src='https://ui-avatars.com/api/?name=Sparsh+Singhania&background=6366f1&color=fff&size=200&bold=true'">
                 <div class="team-name">Sparsh Singhania</div>
                 <div class="team-role">Backend & Database</div>
                 <div class="team-sap">SAP ID: XXXXXXXXX • Batch: 1CCVT</div>
-                <div class="team-bio">Responsible for the MySQL database schema, JDBC connectivity, DAO layer, and multi-threaded backend services that power the platform.</div>
+                <div class="team-bio">Responsible for the MySQL database schema, JDBC connectivity, DAO layer, and
+                    multi-threaded backend services that power the platform.</div>
                 <div class="team-socials">
                     <a class="social-btn" href="#" title="GitHub">🐙</a>
                     <a class="social-btn" href="#" title="LinkedIn">💼</a>
@@ -375,12 +422,13 @@
             <!-- Member 3 — Aditya Singh Saini -->
             <div class="team-card">
                 <img class="team-avatar"
-                     src="https://ui-avatars.com/api/?name=Aditya+Singh+Saini&background=34d399&color=fff&size=200&bold=true"
-                     alt="Aditya Singh Saini">
+                    src="https://ui-avatars.com/api/?name=Aditya+Singh+Saini&background=34d399&color=fff&size=200&bold=true"
+                    alt="Aditya Singh Saini">
                 <div class="team-name">Aditya Singh Saini</div>
                 <div class="team-role">UI/UX & Frontend</div>
                 <div class="team-sap">SAP ID: XXXXXXXXX • Batch: 1CCVT</div>
-                <div class="team-bio">Crafted the search & filter experience, responsive property cards, and all frontend user-interaction flows including the compare feature.</div>
+                <div class="team-bio">Crafted the search & filter experience, responsive property cards, and all
+                    frontend user-interaction flows including the compare feature.</div>
                 <div class="team-socials">
                     <a class="social-btn" href="#" title="GitHub">🐙</a>
                     <a class="social-btn" href="#" title="LinkedIn">💼</a>
@@ -400,22 +448,26 @@
             <div class="value-card">
                 <div class="value-icon">🔍</div>
                 <div class="value-title">Transparency</div>
-                <div class="value-text">No hidden fees, no fake listings. Every property on Accomodo is manually verified.</div>
+                <div class="value-text">No hidden fees, no fake listings. Every property on Accomodo is manually
+                    verified.</div>
             </div>
             <div class="value-card">
                 <div class="value-icon">🤖</div>
                 <div class="value-title">Smart Matching</div>
-                <div class="value-text">Our AI-powered recommendation engine learns your preferences and serves you the best options.</div>
+                <div class="value-text">Our AI-powered recommendation engine learns your preferences and serves you the
+                    best options.</div>
             </div>
             <div class="value-card">
                 <div class="value-icon">🛡️</div>
                 <div class="value-title">Safety First</div>
-                <div class="value-text">Gender-specific filters and verified listings ensure a safe search experience for everyone.</div>
+                <div class="value-text">Gender-specific filters and verified listings ensure a safe search experience
+                    for everyone.</div>
             </div>
             <div class="value-card">
                 <div class="value-icon">⚡</div>
                 <div class="value-title">Speed</div>
-                <div class="value-text">Multi-threaded backend and a performant frontend deliver search results in milliseconds.</div>
+                <div class="value-text">Multi-threaded backend and a performant frontend deliver search results in
+                    milliseconds.</div>
             </div>
         </div>
     </div>
@@ -432,4 +484,5 @@
     </div>
 
 </body>
+
 </html>
